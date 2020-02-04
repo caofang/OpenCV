@@ -11,9 +11,6 @@ import random
 #Reading the noisy image
 img = cv2.imread("fuzzy.png",1)
 
-#Displaying to see how it looks
-cv2.imshow("Original",img)
-
 #Converting the image to Gray Scale
 gray = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
 
@@ -22,9 +19,6 @@ blur = cv2.GaussianBlur(gray, (3,3),0)
 
 #Applying inverse binary due to white background and adapting thresholding for better results
 thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 205, 1)
-
-#Checking to see how it looks
-cv2.imshow("Binary",thresh)
 
 #Finding contours with simple retrieval (no hierarchy) and simple/compressed end points
 _, contours = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
@@ -58,6 +52,13 @@ for c in filtered:
 	#Fetch the perimeter
 	p = cv2.arcLength(c,True)
 	print(area,p)
+
+#Displaying to see how it looks
+cv2.imshow("Original",img)
+
+#Checking to see how it looks
+cv2.imshow("Binary",thresh)
+
 
 #Finally show the processed image
 cv2.imshow("Contours",objects)
