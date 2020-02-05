@@ -21,7 +21,10 @@ blur = cv2.GaussianBlur(gray, (3,3),0)
 thresh = cv2.adaptiveThreshold(blur, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 205, 1)
 
 #Finding contours with simple retrieval (no hierarchy) and simple/compressed end points
-_, contours = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+# _, contours = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+
+tmp = cv2.findContours(thresh,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
+contours = tmp[0] if len(tmp) == 2 else tmp[1]
 
 #Checking to see how many contours were found
 print(len(contours))

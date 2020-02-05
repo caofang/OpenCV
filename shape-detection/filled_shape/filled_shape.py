@@ -41,7 +41,11 @@ class FilledShape:
         kernel = np.ones((5, 5), np.uint8)
         cv.dilate(threshold, kernel, iterations=1)
         threshold = cv.GaussianBlur(threshold, (15, 15), 0)
-        img_contour, contours = cv.findContours(threshold, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+        
+        # img_contour, contours = cv.findContours(threshold, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+        # return threshold, contours
+        tmp = cv2.findContours(threshold,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
+        contours = tmp[0] if len(tmp) == 2 else tmp[1]
         return threshold, contours
 
 
