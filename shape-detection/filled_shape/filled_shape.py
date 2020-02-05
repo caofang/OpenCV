@@ -44,7 +44,7 @@ class FilledShape:
         
         # img_contour, contours = cv.findContours(threshold, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
         # return threshold, contours
-        tmp = cv2.findContours(threshold,cv2.RETR_CCOMP,cv2.CHAIN_APPROX_SIMPLE)
+        tmp = cv.findContours(threshold,cv.RETR_CCOMP,cv.CHAIN_APPROX_SIMPLE)
         contours = tmp[0] if len(tmp) == 2 else tmp[1]
         return threshold, contours
 
