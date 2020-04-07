@@ -7,7 +7,8 @@ args = parser.parse_args()
 
 cam = cv2.VideoCapture(args.camera_idx)
 
-cv2.namedWindow("test")
+cv2.namedWindow("test", cv2.WND_PROP_FULLSCREEN)          
+cv2.setWindowProperty("test", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 
 img_counter = 0
 
