@@ -1,24 +1,28 @@
+import argparse
 import cv2
 import numpy as np
 from datetime import datetime
 
-# Create a VideoCapture object
-cap = cv2.VideoCapture(1)
+parser = argparse.ArgumentParser()
+parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 4)
+args = parser.parse_args()
+
+cam = cv2.VideoCapture(args.camera_idx)
 
 # Check if camera opened successfully
-if (cap.isOpened() == False):
+if (cam.isOpened() == False):
     print("Unable to read camera feed")
 
 # Default resolutions of the frame are obtained.The default resolutions are system dependent.
 # We convert the resolutions from float to integer.
-frame_width = int(cap.get(3))
-frame_height = int(cap.get(4))
+frame_width = int(cam.get(3))
+frame_height = int(cam.get(4))
 frame_count = 0
 # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
 out = cv2.VideoWriter('output_video/myVideo.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 60, (frame_width, frame_height))
 
 while (True):
-    ret, frame = cap.read()
+    ret, frame = cam.read()
 
     if ret == True:
         # font
@@ -36,8 +40,7 @@ while (True):
 
         text = f'{"Frame: "} {frame_count} {"Timestamp"} {current_time}'
         # Using cv2.putText() method
-        image = cv2.putText(frame, text, org, font,
-                            fontScale, color, thickness, cv2.LINE_AA)
+        image = cv2.putText(frame, text, org, font, fontScale, color, thickness, cv2.LINE_AA)
         # Write the frame into the file 'output.avi'
         out.write(image)
 
@@ -55,7 +58,7 @@ while (True):
         break
 
     # When everything done, release the video capture and video write objects
-cap.release()
+cam.release()
 out.release()
 
 # Closes all the frames

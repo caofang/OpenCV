@@ -2,7 +2,7 @@ import argparse
 import cv2
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 2)
+parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 0)
 args = parser.parse_args()
 
 cam = cv2.VideoCapture(args.camera_idx)

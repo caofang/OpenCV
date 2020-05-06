@@ -39,6 +39,6 @@ def FrameCapture(path):
 if __name__ == '__main__':
     # Calling the function
     video_dir = Path(os.getcwd(), "myVideo.avi")
-    print(video_dir)
+    # print(video_dir)
 
     FrameCapture(video_dir)
