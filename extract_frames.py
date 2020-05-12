@@ -13,7 +13,6 @@ def FrameCapture(path):
     # vidObj = cv2.VideoCapture(path)
     vidObj = cv2.VideoCapture('output_video/myVideo.avi')
 
-
     # Used as counter variable
     count = 0
 
