@@ -38,6 +38,10 @@ out = cv2.VideoWriter('output_video/myVideo.avi', cv2.VideoWriter_fourcc('M', 'J
 while (True):
     ret, frame = cam.read()
 
+    # text
+    current_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
+    text = f'{"Frame: "} {frame_count} {"Timestamp"} {current_time}'
+
     if ret == True:
         # font
         font = cv2.FONT_HERSHEY_SIMPLEX
@@ -49,9 +53,7 @@ while (True):
         color = (255, 0, 0)
         # Line thickness of 2 px
         thickness = 2
-        # text
-        current_time = datetime.now().strftime('%H:%M:%S.%f')[:-3]
-        text = f'{"Frame: "} {frame_count} {"Timestamp"} {current_time}'
+
         # Using cv2.putText() method
         image = cv2.putText(frame, text, org, font, fontScale, color, thickness, cv2.LINE_AA)
         # Write the frame into the file 'output.avi'

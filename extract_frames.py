@@ -5,20 +5,25 @@
 import cv2
 import os
 from pathlib import Path
+import re
+import os.path
 
+def ClearDir(path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            os.remove(os.path.join(root, file))
 
 # Function to extract frames
 def FrameCapture(path):
     # Path to video file
     # vidObj = cv2.VideoCapture(path)
     vidObj = cv2.VideoCapture('output_video/myVideo.avi')
-
+    ClearDir("video_frames")
     # Used as counter variable
     count = 0
 
     # checks whether frames were extracted
     success = 1
-
     while success:
         # vidObj object calls read
         # function extract frames
