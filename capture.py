@@ -18,11 +18,12 @@ def set_resolution(capture, width, height):
     capture.set(4, height)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 1)
+parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 0)
 args = parser.parse_args()
 
 cam = cv2.VideoCapture(args.camera_idx)
-set_resolution(cam, 960, 540)
+# set_resolution(cam, 960, 540)
+make_480p(cam)
 
 # cv2.namedWindow("test", cv2.WND_PROP_FULLSCREEN)
 # cv2.setWindowProperty("test", cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
