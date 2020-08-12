@@ -12,7 +12,7 @@ def set_resolution(capture, width, height):
     capture.set(4, height)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 4)
+parser.add_argument('--camera_idx', type=int, help='Index of which video source to use. ', default = 1)
 args = parser.parse_args()
 
 cam = cv2.VideoCapture(args.camera_idx)
@@ -33,7 +33,7 @@ frame_width = int(cam.get(3))
 frame_height = int(cam.get(4))
 frame_count = 0
 # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
-out = cv2.VideoWriter('output_video/myVideo.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 60, (frame_width, frame_height))
+out = cv2.VideoWriter('output_video/myVideo.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 30, (frame_width, frame_height))
 
 while (True):
     ret, frame = cam.read()

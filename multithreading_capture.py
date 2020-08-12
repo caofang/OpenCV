@@ -14,7 +14,7 @@ class VideoStreamWidget(object):
         while True:
             if self.capture.isOpened():
                 (self.status, self.frame) = self.capture.read()
-            time.sleep(.01)
+            # time.sleep(.01)
 
     def show_frame(self):
         # Display frames in main program
@@ -25,8 +25,9 @@ class VideoStreamWidget(object):
             cv2.destroyAllWindows()
             exit(1)
 
+
 if __name__ == '__main__':
-    video_stream_widget = VideoStreamWidget(0)
+    video_stream_widget = VideoStreamWidget()
     while True:
         try:
             video_stream_widget.show_frame()

@@ -61,8 +61,8 @@ def still_image(src):
 def main():
     img_src = 'img/portugal_team.jpg'
 
-    capture(0)
-    still_image(img_src)
+    capture(1)
+    # still_image(img_src)
 
     # if cv2.waitKey(30) & 0xff == 27:
     #     cv2.destroyAllWindows()
