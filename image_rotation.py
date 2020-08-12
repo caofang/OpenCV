@@ -11,6 +11,7 @@ def rotate_bound(image, angle):
     # (i.e., the rotation components of the matrix)
     M = cv2.getRotationMatrix2D((cX, cY), -angle, 1.0)
     cos = np.abs(M[0, 0])
+    x = M[0,0]
     sin = np.abs(M[0, 1])
     # compute the new bounding dimensions of the image
     nW = int((h * sin) + (w * cos))
