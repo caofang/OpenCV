@@ -9,7 +9,7 @@ import cv2
 face_cascade = cv2.CascadeClassifier('haarcascades/haarcascade_frontalface_default.xml')
 
 def capture(src):
-    cap = cv2.VideoCapture(src)
+    cap = cv2.VideoCapture(src, cv2.CAP_DSHOW)
 
     while True:
         # Read the frame
@@ -61,7 +61,7 @@ def still_image(src):
 def main():
     img_src = 'img/portugal_team.jpg'
 
-    capture(1)
+    capture(0)
     # still_image(img_src)
 
     # if cv2.waitKey(30) & 0xff == 27:

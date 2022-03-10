@@ -1,0 +1,58 @@
+[a@ubuntu ./~] $: v4l2-ctl --device=/dev/video1 --list-formats-ext
+ioctl: VIDIOC_ENUM_FMT
+	Index       : 0
+	Type        : Video Capture
+	Pixel Format: 'MJPG' (compressed)
+	Name        : Motion-JPEG
+		Size: Discrete 640x360
+			Interval: Discrete 0.003s (330.000 fps)
+		Size: Discrete 1280x720
+			Interval: Discrete 0.010s (100.000 fps)
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.020s (50.000 fps)
+
+[a@ubuntu ./~] $: v4l2-ctl --device=/dev/video1 --list-formats-ext
+[a@ubuntu ./~] $: v4l2-ctl --device=/dev/video0 --list-formats-ext
+ioctl: VIDIOC_ENUM_FMT
+	Index       : 0
+	Type        : Video Capture
+	Pixel Format: 'MJPG' (compressed)
+	Name        : Motion-JPEG
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.032s (31.000 fps)
+		Size: Discrete 1280x1024
+			Interval: Discrete 0.032s (31.000 fps)
+		Size: Discrete 640x480
+			Interval: Discrete 0.008s (120.101 fps)
+			Interval: Discrete 0.033s (30.500 fps)
+		Size: Discrete 1024x768
+			Interval: Discrete 0.032s (31.000 fps)
+		Size: Discrete 352x288
+			Interval: Discrete 0.008s (120.101 fps)
+		Size: Discrete 320x240
+			Interval: Discrete 0.008s (120.101 fps)
+		Size: Discrete 800x600
+			Interval: Discrete 0.017s (60.000 fps)
+		Size: Discrete 1280x720
+			Interval: Discrete 0.017s (60.000 fps)
+
+	Index       : 1
+	Type        : Video Capture
+	Pixel Format: 'YUYV'
+	Name        : YUYV 4:2:2
+		Size: Discrete 1920x1080
+			Interval: Discrete 0.167s (6.000 fps)
+		Size: Discrete 1280x1024
+			Interval: Discrete 0.167s (6.000 fps)
+		Size: Discrete 640x480
+			Interval: Discrete 0.033s (30.500 fps)
+		Size: Discrete 1024x768
+			Interval: Discrete 0.111s (9.000 fps)
+		Size: Discrete 352x288
+			Interval: Discrete 0.033s (30.500 fps)
+		Size: Discrete 320x240
+			Interval: Discrete 0.033s (30.500 fps)
+		Size: Discrete 800x600
+			Interval: Discrete 0.048s (21.000 fps)
+		Size: Discrete 1280x720
+			Interval: Discrete 0.111s (9.000 fps)
